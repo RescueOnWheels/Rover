@@ -1,3 +1,2 @@
-const Motor = require('Moter/index.js');
-
-const Rover = new Motor();
+const Motor = require('./Motor');
+const Larynx = require('./Larynx');
