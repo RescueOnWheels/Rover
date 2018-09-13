@@ -1,6 +1,8 @@
 [submodule "Motor"]
 	path = Motor
 	url = https://github.com/RescueOnWheels/Motor
+	ignore = dirty
 [submodule "Larynx"]
 	path = Larynx
 	url = https://github.com/RescueOnWheels/Larynx
+	ignore = dirty
