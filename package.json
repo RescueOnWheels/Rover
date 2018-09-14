@@ -5,7 +5,7 @@
     "main": "rover.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "update": "git submodule update & git submodule foreach git pull origin master & git submodule foreach npm install"
+        "update": "git submodule update -f & git submodule foreach git pull origin master & git submodule foreach npm install"
     },
     "repository": {
         "type": "git",
