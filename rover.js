@@ -1,13 +1,12 @@
 const Motor = require('./Motor');
 const Larynx = require('./Larynx');
 
-const comm = new Larynx();
 const motor = new Motor();
 
-comm.on('move', (data) => {
+Larynx.on('move', (data) => {
     console.log(data);
 
-    if(data == 'left') {
+    if (data == 'left') {
         motor.Left();
     } else if (data == 'right') {
         motor.Right();
@@ -18,8 +17,6 @@ comm.on('move', (data) => {
     }
 });
 
-comm.on('disconnect', () => {
+Larynx.on('disconnect', () => {
     motor.Stop();
 });
-
-comm.Connect();
