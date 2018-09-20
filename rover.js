@@ -1,22 +1,20 @@
 const Motor = require('./Motor');
 const Larynx = require('./Larynx');
 
-const motor = new Motor();
-
 Larynx.on('move', (data) => {
-    console.log(data);
+  console.log(data);
 
-    if (data == 'left') {
-        motor.Left();
-    } else if (data == 'right') {
-        motor.Right();
-    } else if (data.speed == 0 || data.speed == -0) {
-        motor.Stop();
-    } else {
-        motor.Forward(data);
-    }
+  if (data === 'left') {
+    Motor.Left();
+  } else if (data === 'right') {
+    Motor.Right();
+  } else if (data.speed === 0) {
+    Motor.Stop();
+  } else {
+    Motor.Forward(data);
+  }
 });
 
 Larynx.on('disconnect', () => {
-    motor.Stop();
+  Motor.Stop();
 });
