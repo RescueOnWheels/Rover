@@ -15,6 +15,10 @@ Larynx.on('move', (data) => {
   }
 });
 
+Larynx.on('stop', () => {
+  Motor.Stop();
+});
+
 Larynx.on('disconnect', () => {
   Motor.Stop();
 });
