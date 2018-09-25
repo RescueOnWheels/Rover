@@ -2,8 +2,6 @@ const Motor = require('./Motor');
 const Larynx = require('./Larynx');
 
 Larynx.on('move', (data) => {
-  console.log(data);
-
   if (data === 'left') {
     Motor.Left();
   } else if (data === 'right') {
