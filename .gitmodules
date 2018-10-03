@@ -1,8 +1,8 @@
-[submodule "Motor"]
-	path = Motor
+[submodule "lib/Motor"]
+	path = lib/Motor
 	url = https://github.com/RescueOnWheels/Motor
 	ignore = dirty
-[submodule "Larynx"]
-	path = Larynx
+[submodule "lib/Larynx"]
+	path = lib/Larynx
 	url = https://github.com/RescueOnWheels/Larynx
 	ignore = dirty
