@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "description": "The Rover Rescue System.",
   "main": "rover.js",
+  "dependencies": {
+    "if-env": "1.0.4"
+  },
+  "devDependencies": {
+    "cross-env": "5.2.0",
+    "eslint": "5.6.1",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.14.0"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development DEBUG=RRS:* node ./index.js",
-    "lint": "eslint .",
-    "lint-fix": "eslint . --fix",
+    "lint": "if-env NODE_ENV=CI && npm run lint:ci || npm run lint:fix",
+    "lint:ci": "eslint .",
+    "lint:fix": "eslint . --fix",
     "preinstall": "git submodule foreach npm install",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "update": "git submodule update -f & git submodule foreach git pull origin master"
   },
   "repository": {
@@ -21,12 +30,6 @@
     "url": "https://github.com/RescueOnWheels/Rover/issues"
   },
   "homepage": "https://github.com/RescueOnWheels/Rover#readme",
-  "devDependencies": {
-    "cross-env": "5.2.0",
-    "eslint": "5.6.1",
-    "eslint-config-airbnb-base": "13.1.0",
-    "eslint-plugin-import": "2.14.0"
-  },
   "directories": {
     "lib": "lib"
   }
