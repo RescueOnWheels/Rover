@@ -7,17 +7,28 @@
     "if-env": "1.0.4"
   },
   "devDependencies": {
+    "chai": "4.2.0",
+    "coveralls": "3.0.2",
     "cross-env": "5.2.0",
     "eslint": "5.6.1",
     "eslint-config-airbnb-base": "13.1.0",
-    "eslint-plugin-import": "2.14.0"
+    "eslint-plugin-import": "2.14.0",
+    "mocha": "5.2.0",
+    "nyc": "13.0.1"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development DEBUG=RRS:* node ./index.js",
-    "lint": "if-env NODE_ENV=CI && npm run lint:ci || npm run lint:fix",
-    "lint:ci": "eslint .",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "if-env NODE_ENV=CI && npm run lint: || npm run lint:fix",
+    "lint:": "eslint .",
     "lint:fix": "eslint . --fix",
     "preinstall": "git submodule foreach npm install",
+    "start": "if-env npm_config_debug=true && npm run start:debug || npm run start:",
+    "start:": "node ./index.js",
+    "start:debug": "cross-env DEBUG=RRS:* npm run start:",
+    "test": "if-env NODE_ENV=CI && npm run test: || if-env npm_config_dev=true && npm run test:dev || if-env npm_config_debug=true && npm run test:debug || npm run test:",
+    "test:": "nyc mocha",
+    "test:debug": "cross-env DEBUG=RRS:* npm run test:",
+    "test:dev": "if-env npm_config_debug=true && cross-env NODE_ENV=development npm run test:debug || cross-env NODE_ENV=development npm run test:",
     "update": "git submodule update -f & git submodule foreach git pull origin master"
   },
   "repository": {
