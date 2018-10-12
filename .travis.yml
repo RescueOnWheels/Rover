@@ -4,12 +4,12 @@ language:
 node_js:
   - 'lts/*'
 
+env:
+  - NODE_ENV=CI
+
 cache:
   directories:
     - node_modules
-
-before_script:
-  - npm install
 
 script:
   - npm run lint
