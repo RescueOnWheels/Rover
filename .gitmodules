@@ -6,3 +6,7 @@
 	path = lib/Larynx
 	url = https://github.com/RescueOnWheels/Larynx
 	ignore = dirty
+[submodule "Nervi"]
+	path = lib/Nervi
+	url = https://github.com/RescueOnWheels/Nervi
+	ignore = dirty
