@@ -1,5 +1,5 @@
-const interface = require('./interface.test');
+const specifications = require('./specifications.test');
 
 describe('Mock', () => {
-  describe('interface', interface);
+  describe('specifications', specifications);
 });
