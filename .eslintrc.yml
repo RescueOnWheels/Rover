@@ -1,0 +1,8 @@
+env:
+  mocha: true
+  node: true
+
+extends: airbnb-base
+
+rules:
+  import/no-unresolved: 0
