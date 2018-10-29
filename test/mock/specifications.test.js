@@ -27,36 +27,36 @@ module.exports = () => {
   });
 
   describe('Motor', () => {
-    it('should expose the `Left` function.', () => {
+    it('should expose the `move` function.', () => {
       // Assert
-      should.exist(Motor.Left);
+      should.exist(Motor.move);
 
       // Assert
-      Motor.Left.should.be.an('function');
+      Motor.move.should.be.an('function');
     });
 
-    it('should expose the `Movement` function.', () => {
+    it('should expose the `turnLeft` function.', () => {
       // Assert
-      should.exist(Motor.Movement);
+      should.exist(Motor.turnLeft);
 
       // Assert
-      Motor.Movement.should.be.an('function');
+      Motor.turnLeft.should.be.an('function');
     });
 
-    it('should expose the `Right` function.', () => {
+    it('should expose the `turnRight` function.', () => {
       // Assert
-      should.exist(Motor.Right);
+      should.exist(Motor.turnRight);
 
       // Assert
-      Motor.Right.should.be.an('function');
+      Motor.turnRight.should.be.an('function');
     });
 
     it('should expose the `Stop` function.', () => {
       // Assert
-      should.exist(Motor.Stop);
+      should.exist(Motor.stop);
 
       // Assert
-      Motor.Stop.should.be.an('function');
+      Motor.stop.should.be.an('function');
     });
   });
 };
