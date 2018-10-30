@@ -20,32 +20,34 @@
   <script>
     var leftwall = [];
     var rightwall = [];
-    var me =[];
+    var me = [];
     for (let i = 0; i < 20; i++) {
       leftwall.push({ x: 10 + Math.random() * 10, y: i * 10 });
       me.push({ x: 55 + Math.random() * 10, y: i * 10 });
-      rightwall.push({ x:100 + Math.random() * 10, y: i * 10 });
+      rightwall.push({ x: 100 + Math.random() * 10, y: i * 10 });
     }
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
 
     leftwall.forEach(coord => {
       ctx.beginPath();
-      ctx.arc(coord.x, coord.y, 5, 0, 2 * Math.PI);
+      ctx.fillRect(coord.x - 4, coord.y - 4, 8, 8);
       ctx.stroke();
     });
     rightwall.forEach(coord => {
       ctx.beginPath();
-      ctx.arc(coord.x, coord.y, 5, 0, 2 * Math.PI);
+      ctx.fillRect(coord.x - 4, coord.y - 4, 8, 8);
       ctx.stroke();
     });
+
+    ctx.strokeStyle = "#0099ff";
     ctx.beginPath();
     ctx.moveTo(me[0].x, me[0].y);
     for (let i = 1; i < me.length; i++) {
       ctx.lineTo(me[i].x, me[i].y);
     }
-    ctx.stroke();
 
+    ctx.stroke();
 
 
   </script>
