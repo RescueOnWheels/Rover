@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <canvas id="myCanvas" width="1000" height="500" style="border:1px solid #000000;">
+  </canvas>
+
+  <script>
+    var leftwall = [];
+    var rightwall = [];
+    var me = [];
+    for (let i = 0; i < 20; i++) {
+      leftwall.push({ x: 10 + Math.random() * 10, y: i * 10 });
+      me.push({ x: 55 + Math.random() * 10, y: i * 10 });
+      rightwall.push({ x: 100 + Math.random() * 10, y: i * 10 });
+    }
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+    leftwall.forEach(coord => {
+      ctx.beginPath();
+      ctx.fillRect(coord.x - 4, coord.y - 4, 8, 8);
+      ctx.stroke();
+    });
+    rightwall.forEach(coord => {
+      ctx.beginPath();
+      ctx.fillRect(coord.x - 4, coord.y - 4, 8, 8);
+      ctx.stroke();
+    });
+
+    ctx.strokeStyle = "#0099ff";
+    ctx.beginPath();
+    ctx.moveTo(me[0].x, me[0].y);
+    for (let i = 1; i < me.length; i++) {
+      ctx.lineTo(me[i].x, me[i].y);
+    }
+
+    ctx.stroke();
+
+
+  </script>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
