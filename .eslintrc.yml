@@ -6,3 +6,4 @@ extends: airbnb-base
 
 rules:
   import/no-unresolved: 0
+  no-param-reassign: 0
