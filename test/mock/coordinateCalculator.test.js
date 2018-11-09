@@ -23,56 +23,94 @@ module.exports = () => {
   describe('Expected errors', () => {});
 
   describe('Test cases', () => {
-    it('test case 1', () => {
+    describe('test case 1', () => {
       // Arrange
-      const angle = 0;
-      const distance = 5;
+      const ANGLE = 60;
+      const DISTANCE = 5;
 
-      // Act
-      coordinate = coordinateCalculator(angle, distance, { x: 0, y: 0 });
+      it('left ultrasonic', () => {
+        // Arrange
+        const leftAngle = 270 + ANGLE;
 
-      // Assert
-      coordinate.x.should.equal(0);
-      coordinate.y.should.equal(5);
+        // Act
+        coordinate = coordinateCalculator(leftAngle, DISTANCE, { x: 10, y: 10 });
+
+        // Assert
+        (Math.round(coordinate.x * 100) / 100).should.equal(7.5);
+        (Math.round(coordinate.y * 100) / 100).should.equal(14.33);
+      });
+
+      it('right ultrasonic', () => {
+        // Arrange
+        const rightAngle = 90 + ANGLE;
+
+        // Act
+        coordinate = coordinateCalculator(rightAngle, DISTANCE, { x: 10, y: 10 });
+
+        // Assert
+        (Math.round(coordinate.x * 100) / 100).should.equal(12.5);
+        (Math.round(coordinate.y * 100) / 100).should.equal(5.67);
+      });
     });
 
-    it('test case 2', () => {
+    describe('test case 2', () => {
       // Arrange
-      const angle = 90;
-      const distance = 5;
+      const ANGLE = 90;
+      const DISTANCE = 2;
 
-      // Act
-      coordinate = coordinateCalculator(angle, distance, { x: 0, y: 0 });
+      it('left ultrasonic', () => {
+        // Arrange
+        const leftAngle = 270 + ANGLE;
 
-      // Assert
-      coordinate.x.should.equal(5);
-      coordinate.y.should.equal(0);
+        // Act
+        coordinate = coordinateCalculator(leftAngle, DISTANCE, { x: 0, y: 0 });
+
+        // Assert
+        (Math.round(coordinate.x * 100) / 100).should.equal(0);
+        (Math.round(coordinate.y * 100) / 100).should.equal(2);
+      });
+
+      it('right ultrasonic', () => {
+        // Arrange
+        const rightAngle = 90 + ANGLE;
+
+        // Act
+        coordinate = coordinateCalculator(rightAngle, DISTANCE, { x: 0, y: 0 });
+
+        // Assert
+        (Math.round(coordinate.x * 100) / 100).should.equal(0);
+        (Math.round(coordinate.y * 100) / 100).should.equal(-2);
+      });
     });
 
-    it('test case 3', () => {
+    describe('test case 3', () => {
       // Arrange
-      const angle = 180;
-      const distance = 5;
+      const ANGLE = 270;
+      const DISTANCE = 2;
 
-      // Act
-      coordinate = coordinateCalculator(angle, distance, { x: 0, y: 0 });
+      it('left ultrasonic', () => {
+        // Arrange
+        const leftAngle = 270 + ANGLE;
 
-      // Assert
-      coordinate.x.should.equal(0);
-      coordinate.y.should.equal(-5);
-    });
+        // Act
+        coordinate = coordinateCalculator(leftAngle, DISTANCE, { x: 0, y: 0 });
 
-    it('test case 4', () => {
-      // Arrange
-      const angle = 270;
-      const distance = 5;
+        // Assert
+        (Math.round(coordinate.x * 100) / 100).should.equal(0);
+        (Math.round(coordinate.y * 100) / 100).should.equal(-2);
+      });
 
-      // Act
-      coordinate = coordinateCalculator(angle, distance, { x: 0, y: 0 });
+      it('right ultrasonic', () => {
+        // Arrange
+        const rightAngle = 90 + ANGLE;
 
-      // Assert
-      coordinate.x.should.equal(-5);
-      coordinate.y.should.equal(0);
+        // Act
+        coordinate = coordinateCalculator(rightAngle, DISTANCE, { x: 0, y: 0 });
+
+        // Assert
+        (Math.round(coordinate.x * 100) / 100).should.equal(0);
+        (Math.round(coordinate.y * 100) / 100).should.equal(2);
+      });
     });
   });
 };
