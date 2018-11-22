@@ -7,7 +7,7 @@ const toRadians = require('./toRadians.test');
 /* Lib */
 const Larynx = require('./../../lib/Larynx/test');
 const Motor = require('./../../lib/Motor/test');
-const Nervi = require('./../../lib/Nervi/test/test');
+const Nervi = require('./../../lib/Nervi/test');
 
 describe('Mock', () => {
   describe('specifications', specifications);
