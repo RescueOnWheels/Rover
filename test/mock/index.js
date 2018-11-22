@@ -5,6 +5,7 @@ const coordinateCalculator = require('./coordinateCalculator.test');
 const toRadians = require('./toRadians.test');
 
 /* Lib */
+const Larynx = require('./../../lib/Larynx/test');
 const Motor = require('./../../lib/Motor/test/test');
 const Nervi = require('./../../lib/Nervi/test/test');
 
@@ -17,6 +18,7 @@ describe('Mock', () => {
   });
 
   describe('lib', () => {
+    describe('Larynx', Larynx);
     describe('Motor', Motor);
     describe('Nervi', Nervi);
   });
