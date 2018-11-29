@@ -4,6 +4,7 @@ const chai = require('chai');
 /* Test target */
 const Larynx = require('./../../lib/Larynx');
 const Motor = require('./../../lib/Motor');
+const Nervi = require('./../../lib/Nervi');
 
 const should = chai.should();
 
@@ -57,6 +58,48 @@ module.exports = () => {
 
       // Assert
       Motor.stop.should.be.an('function');
+    });
+  });
+
+  describe('Nervi', () => {
+    it('should expose the `cameraMount`.', () => {
+      // Assert
+      should.exist(Nervi.cameraMount);
+
+      // Assert
+      Nervi.cameraMount.should.be.an('object');
+    });
+
+    it('should expose the `rotary`.', () => {
+      // Assert
+      should.exist(Nervi.rotary);
+
+      // Assert
+      Nervi.rotary.should.be.an('object');
+    });
+
+    it('should expose the `rotary`, which should extend from EventEmitter.', () => {
+      // Arrange
+      const { name } = Object.getPrototypeOf(Object.getPrototypeOf(Nervi.rotary)).constructor.name;
+
+      // Assert
+      name.should.equal('EventEmitter');
+    });
+
+    it('should expose the `ultrasonic`.', () => {
+      // Assert
+      should.exist(Nervi.ultrasonic);
+
+      // Assert
+      Nervi.ultrasonic.should.be.an('object');
+    });
+
+    it('should expose the `ultrasonic`, which should extend from EventEmitter.', () => {
+      // Arrange
+      const { name } = Object.getPrototypeOf(Object.getPrototypeOf(Nervi.ultrasonic)).constructor;
+
+      // Assert
+      name.should.equal('EventEmitter');
     });
   });
 };
