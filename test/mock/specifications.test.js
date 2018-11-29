@@ -80,7 +80,7 @@ module.exports = () => {
 
     it('should expose the `rotary`, which should extend from EventEmitter.', () => {
       // Arrange
-      const { name } = Object.getPrototypeOf(Object.getPrototypeOf(Nervi.rotary)).constructor.name;
+      const { name } = Object.getPrototypeOf(Object.getPrototypeOf(Nervi.rotary)).constructor;
 
       // Assert
       name.should.equal('EventEmitter');
